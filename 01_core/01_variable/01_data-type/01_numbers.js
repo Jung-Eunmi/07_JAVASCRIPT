@@ -27,7 +27,4 @@ console.log(10 / 4);
 */ 
 console.log(10 / 0);    //Infinity
 console.log(10 / -0);   //-Infinity
-console.log(1 * '문자열');
-
-
-
+console.log(1 * '문자열');  // NaN
