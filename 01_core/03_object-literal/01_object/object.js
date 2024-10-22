@@ -6,7 +6,6 @@
      - property 의 값이 function(함수) 타입이면 메소드라고 부른다.
 */
 
-
 /*
     <객체 생성하는 방법>
      - Java 의 경우 new 인스턴스 생성 연산자와 함께 생성자를 호출하여 객체를 만들었다.
@@ -32,7 +31,6 @@ var student = {
         return `${this.name} 는 ${this.age}살 입니다`;
     }
 };
-
 console.log(student); 
 console.log(typeof student); 
 
@@ -40,3 +38,8 @@ var student2 = {};
 console.log(student2); 
 console.log(typeof student2); 
 
+
+/*
+    객체 리터럴 방식은 student 객체를 만든 것처럼 property 를 넣으면서 생성을 할 수도있고,
+    student2 객체처럼 비어있는 객체를 만든 후 동적으로 property 를 추가할 수 있다.
+*/
