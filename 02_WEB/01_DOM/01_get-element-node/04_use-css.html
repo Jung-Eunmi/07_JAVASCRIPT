@@ -44,6 +44,10 @@
         const $redList = document.querySelectorAll('ul > li');
         // querySelectorAll -> NodeList 반환
         console.log($redList);
+        
+        // NodeList 객체는 forEach 메소드를 프로퍼티로 가지고 있기 때문에
+        // 스프레드 문법을 쓰지 않아도 forEach 를 사용할 수 있다.
+        $redList.forEach(red => red.style.color = 'gray');
     </script>
 </body>
 </html>
