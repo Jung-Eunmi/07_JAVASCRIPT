@@ -101,10 +101,58 @@ numbers.reduce((pre, currV, currI, array) => {
     console.log(`array : ${array}`);
 })
 
-console.log('=============================================')
-
 const sum = numbers.reduce((pre, currV) => {
     return pre + currV; // return 한 결과는 다음 콜백의 첫번째 인자로 전달    
 })
 
 console.log(`sum : ${sum}`);
+
+console.log('=============================================')
+
+/*
+    배열의 some()
+     - 배열 내 일부 요소가 콜백 함수의 테스트를 통과하는 지 확인하여 
+       결과를 boolean 타입으로 반환
+*/
+
+// 배열의 요소 중 10보다 큰 값이 1개 이상 존재하는 지 확인
+let result = [1, 4, 5, 8, 9].some(item => item > 10);
+console.log(`10보다 큰 값이 1개 이상 존재하는 지 result : ${result}`);
+
+// [1, 4, 5, 7, 9] 배열에서 짝수가 있는 지 확인
+let result2 = [1, 4, 5, 8, 9].some(item => item % 2 == 0);
+console.log(`배열에서 짝수가 있는지 result2 : ${result2}`);
+
+
+console.log('=============================================')
+
+/*
+    배열 내 모든 요소가 테스트를 통과 하는 지 확인하는 every() 
+    boolean 타입으로 반환한다.
+*/
+result = [1, 4, 5, 3, 2].every(item => item > 3);
+console.log(`every result : ${result}`);
+
+console.log('=============================================')
+
+/*
+    배열의 find()
+     - 배열을 순회하며 각 요소에 대하여 인자로 주어진 콜백함수를 실행하여
+       결과가 참인 첫번째 요소를 반환, 참인 요소가 존재하지 않으면 undefined
+*/
+
+const student = [
+    {name : '조평훈', score : 100},
+    {name : '김남규', score : 95},
+    {name : '김규남', score : 85}
+]
+result = student.find(item => item.name == '조평훈');
+console.log(result);
+
+// student 배열에서 90 점 넘는 학생만 추출하기
+result2 = student.find(item => item.score >= 90);
+console.log(result2)
+
+// find 를 쓰면 조평훈만 출력되고 끝난다. => filter 를 쓰면 다 찾을수 있다
+result2 = student.filter(item => item.score >= 90);
+console.log(result2)
