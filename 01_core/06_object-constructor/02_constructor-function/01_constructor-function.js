@@ -46,7 +46,6 @@ function Student(name, age) {
         return `${this.name}(은)는 ${this.age}세 입니다`
     }
 };
-
 // 생성자 함수를 사용해서 객체 생성하기
 const student4 = new Student('푸바오', 4);
 const student5 = new Student('후이바오', 1);
