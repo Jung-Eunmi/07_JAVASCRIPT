@@ -100,8 +100,10 @@ numbers.reduce((pre, currV, currI, array) => {
     console.log(`currentIndex : ${currI}`);
     console.log(`array : ${array}`);
 })
-
+console.log('=============================================')
 const sum = numbers.reduce((pre, currV) => {
+    console.log(`previousValue : ${pre}`);
+    console.log(`currentValue : ${currV}`);
     return pre + currV; // return 한 결과는 다음 콜백의 첫번째 인자로 전달    
 })
 
