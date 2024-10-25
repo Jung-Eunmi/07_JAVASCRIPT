@@ -54,7 +54,11 @@
             const $li = document.createElement('li');
 
             $li.textContent = menu;
+
+            $fragment.appendChild($li);
         });
+
+        $food.append($fragment);
         
 
 
