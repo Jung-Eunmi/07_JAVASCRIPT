@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mouse-event</title>
+    <style>
+        .title{
+            text-align: center;
+        }
+
+        .area{
+            background-color: lightcoral;
+            border: 1px solid black;
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>02. 마우스 관련 이벤트</h1>
+    <hr>
+    <pre>
+        <h3>마우스 이벤트 대표적 예시</h3>
+    </pre>
+    <ul>
+        <li>mousedown/up</li>
+        <li>mouseover/out</li>
+        <li>mousemove</li>
+        <li>mouseclick</li>
+        <li>contextmenu</li>
+    </ul>
+    <hr>
+    <button>클릭</button>
+    <div class="area"></div>
+    <script>
+        const $btn = document.querySelector('button');
+        const $div = document.querySelector('.area');
+        
+        // e 객체의 button 프로퍼티
+        //  0 : 왼쪽클릭
+        //  1 : 휠 클릭
+        //  2 : 오른쪽클릭
+        $btn.onmousedown = e => {
+            $div.insertAdjacentHTML('beforeend', 'mousedown button=' + e.button + "<br>");
+        } // mousedown 은 우리가 마우스를 누르는 시점
+
+        $btn.onmouseup = e => {
+            $div.insertAdjacentHTML('beforeend', 'mouseup button=' + e.button + "<br>");
+        } // mouseup 은 우리가 마우스를 누르고 떼는 시점
+
+        $btn.onmouseover = e => { 
+            $div.insertAdjacentHTML('beforeend', 'onmouseover button=' + e.button + "<br>");
+        } // mouserover 는 우리가 마우스를 올리는 순간 바로 캐치를 함 ★
+
+        $btn.onmouseout = e => {
+            $div.insertAdjacentHTML('beforeend', 'onmouseout button=' + e.button + "<br>");
+        }  // mouseout 은 우리가 마우스를 벗어나는 순간 바로 캐치를 함
+
+        $btn.onclick = e => {
+            $div.insertAdjacentHTML('beforeend', 'onclick button=' + e.button + "<br>");
+        } // onclick 은 우리가 클릭하는 시점 (mousedown 보다 많이 씀) ★
+
+        $btn.oncontextmenu = e => {
+            $div.insertAdjacentHTML('beforeend', 'oncontextmenu button=' + e.button + "<br>");
+        } // oncontextmenu 은 우리가 마우스를 더블 클릭하는 시점
+
+    </script>
+</body>
+</html>

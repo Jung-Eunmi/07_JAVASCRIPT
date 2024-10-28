@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=], initial-scale=1.0">
+    <title>stop-event-propagation</title>
+</head>
+<body>
+    <h1>02. 이벤트 전파 방지</h1>
+    <ul id="bao">
+        <li>푸바오</li>
+        <li>러바오</li>
+        <li>아이바오</li>
+    </ul>
+    <script>
+        const $bao = document.getElementById('bao');
+
+        $bao.addEventListener('click', e => {
+            if(e.target.matches('li')) {
+                e.target.style.color = 'red';
+            }
+        });
+
+        // 첫 번째 li 만 위에서 만들어 둔 이벤트가 
+        // 위임되는것을 stop 하게 되어 red 로 변경이 되지 않는다.
+        document.querySelector('li').addEventListener('click', e => {
+            e.stopPropagation();
+        });
+    </script>
+</body>
+</html>
