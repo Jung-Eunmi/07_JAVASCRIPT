@@ -32,15 +32,18 @@
         // 인자로 취득하고 싶은 속성을 문자열로 정의한다.
         const $inputValue = $input.getAttribute('value');
         console.log($inputValue);
-
+        
         // value 속성 값 변경
-        $input.setAttribute('value', '푸바오');
+        // 첫번째 인자로 변경하고 싶은 속성명
+        // 두번째 인자는 변경하고 싶은 값
+        $input.setAttribute('value', '푸바오');  // set을 이용해서 변경함
+
     </script>
 
     <pre>
-        Element 가 제공하는 
-        hasAttribute(속성명) : 인자로 전달한 어트리뷰트 존재 여부
-        removeAttribute(속성명) : 인자로 전달한 어트리뷰트 삭제
+    Element 가 제공하는 
+    hasAttribute(속성명) : 인자로 전달한 어트리뷰트 존재 여부
+    removeAttribute(속성명) : 인자로 전달한 어트리뷰트 삭제
     </pre>
     <label for="nickname">닉네임 : </label>
     <input type="text" id="nickname" value="JSMaster">
