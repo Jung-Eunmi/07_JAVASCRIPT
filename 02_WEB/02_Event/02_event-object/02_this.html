@@ -54,14 +54,27 @@
 
     <h3>화살표 함수를 사용할 때</h3>
     <pre>
-    화살표 함수로 정의한 이벤트 핸들러 내부의 this 는 
-    나 자신을 가리키는 것이 아닌 상위 객체를 가리킨다.
+    ★ 화살표 함수로 정의한 이벤트 핸들러 내부의 this 는 
+    나 자신을 가리키는 것이 아닌 상위 객체를 가리킨다. ★
     화살표 함수는 함수 자체의 this 를 갖지 않는다를 명심해야한다.
     </pre>
     <button id="btn3">클릭</button>
     <button id="btn4">클릭</button>
     <script>
-        
+        const $btn3 = document.getElementById('btn3');
+        const $btn4 = document.getElementById('btn4');
+
+        // 프로퍼티 방식
+        $btn3.onclick = e => {
+            console.log(this);
+            console.log(e.currentTarget);
+        }   // 여기서의 this 는 window 를 가리킴
+
+        // addEventListener 방식
+        $btn4.addEventListener('click', e => {
+            console.log(this);
+            console.log(e.currentTarget);
+        })   // 여기서의 this 는 window 를 가리킴
     </script>
 </body>
 </html>
