@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>asynchronouse</title>
+</head>
+<body>
+    <h1>01. 비동기</h1>
+    <pre>
+    <b>자바스크립트는 자바와는 다르게 한 번에 하나의 태스크(과정)만
+    실행할 수 있는 싱글 스레드 방식으로 동작하게 된다.</b>
+    때문에 처리에 시간이 걸리는 태스크를 실행하는 경우 블로킹(작업 중단)이 발생하게 된다.
+    </pre>
+
+    <h3>동기 처리</h3>
+    <pre>
+    현재 실행 중인 태스크가 종료될 때까지 다음에 실행 될 태스크가 대기하는 방식이다.
+    장점 : 작업을 순서대로 하나씩 처리하기 때문에 실행 순서를 보장할 수 있다.
+    단점 : 앞 선 작업이 끝날 때까지 뒤에 작업이 불가능하다.(블로킹)
+    </pre>
+    <script>
+        function sleep(func, delay) {
+                            // 현재 시간 return
+            const delayUntil = Date.now() + delay;
+            // 루프로 시간끌기
+            while(Date.now() < delayUntil);
+            func();
+        }
+
+        function delay() {
+            console.log('실행 시간을 늦추고 싶어요')
+        }
+
+        function start() {
+            console.log('바로 실행되고 싶어요')
+        }
+
+        // sleep 함수는 3초 이상 실행이 된다.
+        // sleep(delay, 5000);
+        // start 함수는 먼저 실행되고 싶어도 
+        // sleep 함수가 끝날 때까지 대기할 수 밖에 없다.
+        // start();
+    </script>
+
+    <h3>비동기 처리</h3>
+    <pre>
+    현재 실행 중인 태스크가 종료되지 않아도 다음에 실행 될 태스크가 곧바로 실행되는 방식이다.
+    장점 : 작업이 블로킹 되지 않는다.
+    단점 : 실행 순서를 보장할 수 없다.
+    </pre>
+    <script>
+        /*
+            setTimerout, setInterval, 이벤트 핸들러 HTTP 요청 등은 
+            비동기 처리방식으로 동작한다.
+        */ 
+        // sleep(delay, 3000);
+        setTimeout(delay, 3000);
+        start();
+        
+    </script>
+</body>
+</html>
