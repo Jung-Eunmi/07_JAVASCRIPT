@@ -6,7 +6,7 @@
     <title>open-alert-confirm</title>
 </head>
 <body>
-    <h1>01. open, alert, confirm, prompt 메소드</h1>
+    <h1>open, alert, confirm, prompt 메소드</h1>
     <pre>
     자바스크립트 언어는 브라우저상에서 동작하는 언어다.
     자바스크립트가 web 상에서 동작할 때 사용할 수 있는 기능이 있다.
@@ -65,6 +65,23 @@
             console.log('다음시간까지만 하시죠!')
         }
     </script>
+   
+    <h3>propmt</h3>
+    <pre>
+    window.prompt(message, default)
+    message : 사용자가 어떤 값을 입력해야 되는 지 안내 문구
+    default : 텍스트 입력 필드에 기본 값(문자열)
+    반환값은 사용자가 입력한 값이며 취소를 누르거나 ESC 키를 누르게 되면 null 값이 리턴된다.
+    </pre>
+    <script>
+        const likeNumber = window.prompt('좋아하는 숫자를 입력해주세요', 7);
+        console.log(likeNumber);
 
+        if(likeNumber) {
+            alert(`당신이 좋아하는 숫자는 ${likeNumber} 군요!!`)
+        }else {
+            alert(`좋아하는 숫자를 적어주세요!`)
+        }
+    </script>
 </body>
 </html>
