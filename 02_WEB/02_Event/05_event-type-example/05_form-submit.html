@@ -12,7 +12,20 @@
     서버에 데이터를 전송하기 전 검증을 할 때 사용된다.
     그리고 검증을 거쳐 이상한 값이 들어오면 취소하는 역할을 하게 된다.
     </pre>
-    <form action="http://search.naver.com/search.naver"></form>
+    <form action="http://search.naver.com/search.naver" method="get" name="search">
+        <input type="text" name="query" placeholder="검색 키워드 작성">
+        <button type="submit">네이버로 검색하기</button>
+    </form>
+    <script>
+        const $form = document.forms.search;
+        $form.onsubmit = function() {
+            let keyword = this.querySelector('input[name=query]').value;
 
+            if(!keyword) {
+                alert('검색어는 필수입니다.');
+                return false; // 이벤트를 취소시킨다.
+            }
+        }
+    </script>
 </body>
 </html>
