@@ -136,7 +136,6 @@
     select/checkbox/radio 같은 경우 선택 값이 변경 된 직후 발생하게 되며
     텍스트 입력 요소는 변경 후 포커스를 잃었을 때 발생하게 된다.
     </pre>
-
     <script>
         $age.addEventListener('change', (e) => {
             alert('age 변경됨!!!');
@@ -151,5 +150,15 @@
     <pre>
     input 이벤트는 값을 변경할 때 발생한다.
     </pre>
+    <script>
+        $introduce.addEventListener('input', (e) => {
+            // console.log(e.target.value);
+            let len = e.target.value.trim().length;
+            console.log(len);
+
+            // span 태그 추출
+            $form.querySelector('span').textContent = len;
+        });
+    </script>
 </body>
 </html>
